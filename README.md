@@ -86,3 +86,33 @@ UPDATE students SET age = 21 WHERE id = 1;
 DELETE FROM students WHERE id = 2;
 
 ```
+
+
+## 6. AUTOCOMMIT, COMMIT, ROLLBACK
+
+👉 Explanation:
+
+By default, MySQL runs in autocommit mode → every query is saved immediately.
+
+If you turn autocommit OFF, you can group queries in a transaction.
+
+COMMIT = save changes permanently.
+
+ROLLBACK = undo changes before commit.
+
+👉 Commands:
+```sql
+-- Turn off autocommit
+SET autocommit = 0;
+
+-- Insert without committing
+INSERT INTO students (first_name, last_name, age, dob) 
+VALUES ('Test', 'User', 22, '2002-01-01');
+
+-- Rollback
+ROLLBACK;
+
+-- Commit
+COMMIT;
+
+```
