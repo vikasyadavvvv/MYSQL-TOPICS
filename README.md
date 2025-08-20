@@ -3,16 +3,16 @@
 👉 Explanation:
 - A database is a collection of data organized in tables. In MySQL, a database contains tables, and tables contain rows (records) and columns (fields).
   ```
--- Create a new database
+ Create a new database
 CREATE DATABASE school;
 
--- See all databases
+See all databases
 SHOW DATABASES;
 
--- Use a database
+Use a database
 USE school;
 
--- Delete a database
+ Delete a database
 DROP DATABASE school;
 
   ```
