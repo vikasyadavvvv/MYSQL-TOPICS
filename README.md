@@ -116,3 +116,17 @@ ROLLBACK;
 COMMIT;
 
 ```
+
+
+## 7.⏰ CURRENT_DATE() & CURRENT_TIME()
+
+👉 Explanation:
+These functions return today’s date and current time.
+
+👉 Commands:
+```sql
+SELECT CURRENT_DATE();
+SELECT CURRENT_TIME();
+SELECT NOW(); -- both date and time
+
+```
