@@ -50,7 +50,7 @@ VALUES ('Vikas', 'Yadav', 20, '2005-04-02');
 ```
 
 
-## 4.SELECT
+## 4. SELECT
 
 👉 Explanation:
 SELECT fetches data from tables.
@@ -65,5 +65,24 @@ SELECT first_name, age FROM students;
 
 -- With condition
 SELECT * FROM students WHERE age > 18;
+
+```
+
+
+## 5. ✏ UPDATE & ❌ DELETE
+
+👉 Explanation:
+
+UPDATE modifies data.
+
+DELETE removes data.
+
+👉 Commands:
+```sql
+-- Update
+UPDATE students SET age = 21 WHERE id = 1;
+
+-- Delete
+DELETE FROM students WHERE id = 2;
 
 ```
