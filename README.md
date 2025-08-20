@@ -146,3 +146,17 @@ CREATE TABLE teachers (
 );
 
 ```
+
+## 9. 🚫 NOT NULL
+
+👉 Explanation:
+Column must always have a value.
+
+👉 Commands:
+```sql
+CREATE TABLE departments (
+    dept_id INT AUTO_INCREMENT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL
+);
+
+```
