@@ -48,3 +48,22 @@ INSERT INTO students (first_name, last_name, age, dob)
 VALUES ('Vikas', 'Yadav', 20, '2005-04-02');
 
 ```
+
+
+## 4.SELECT
+
+👉 Explanation:
+SELECT fetches data from tables.
+
+👉 Commands:
+```sql
+-- Get all data
+SELECT * FROM students;
+
+-- Get specific columns
+SELECT first_name, age FROM students;
+
+-- With condition
+SELECT * FROM students WHERE age > 18;
+
+```
