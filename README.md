@@ -15,3 +15,25 @@
 -- Delete a database
 ## DROP DATABASE school;
 
+
+## 2.📋 TABLES
+
+👉 Explanation:
+Tables store your data in rows and columns. Each column has a data type (INT, VARCHAR, DATE, etc.).
+```sql
+-- Create table
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    dob DATE
+);
+
+-- Show all tables
+SHOW TABLES;
+
+-- See table structure
+DESCRIBE students;
+
+```
