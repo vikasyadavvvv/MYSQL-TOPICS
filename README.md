@@ -176,3 +176,40 @@ CREATE TABLE employees (
 );
 
 ```
+
+
+## 11. 🔑 PRIMARY KEYS
+
+👉 Explanation:
+
+Uniquely identifies each row.
+
+A table can have only one primary key.
+
+Automatically NOT NULL + UNIQUE.
+
+👉 Commands:
+```sal
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(100)
+);
+
+```
+
+
+## 14.🔢 AUTO_INCREMENT
+
+👉 Explanation:
+Automatically generates numbers for a column (usually IDs).
+
+👉 Commands:
+```sql
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    order_date DATE
+);
+
+```
