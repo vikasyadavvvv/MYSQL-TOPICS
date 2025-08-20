@@ -2,7 +2,7 @@
 ## 1. 🏗 DATABASES
 👉 Explanation:
 - A database is a collection of data organized in tables. In MySQL, a database contains tables, and tables contain rows (records) and columns (fields).
-  ``MYSQL
+  ```MYSQL
   -- Create a new database
 CREATE DATABASE school;
 
