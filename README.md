@@ -178,7 +178,22 @@ CREATE TABLE employees (
 ```
 
 
-## 11. 🔑 PRIMARY KEYS
+## 11. 📌 DEFAULT
+
+👉 Explanation:
+If no value is given, a column uses a default value.
+
+👉 Commands:
+```sql
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    status VARCHAR(20) DEFAULT 'available'
+);
+```
+
+
+## 12. 🔑 PRIMARY KEYS
 
 👉 Explanation:
 
@@ -199,7 +214,7 @@ CREATE TABLE customers (
 ```
 
 
-## 14.🔢 AUTO_INCREMENT
+## 13.🔢 AUTO_INCREMENT
 
 👉 Explanation:
 Automatically generates numbers for a column (usually IDs).
