@@ -7,11 +7,11 @@
 ## CREATE DATABASE school;
 
 -- See all databases
-SHOW DATABASES;
+## SHOW DATABASES;
 
 -- Use a database
-USE school;
+## USE school;
 
 -- Delete a database
-DROP DATABASE school;
+## DROP DATABASE school;
 
