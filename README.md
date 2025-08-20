@@ -160,3 +160,19 @@ CREATE TABLE departments (
 );
 
 ```
+
+
+## 10. ✅ CHECK
+
+👉 Explanation:
+Places a condition on column values.
+
+👉 Commands:
+```sql
+CREATE TABLE employees (
+    emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    age INT CHECK (age >= 18)
+);
+
+```
