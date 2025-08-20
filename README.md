@@ -37,3 +37,14 @@ SHOW TABLES;
 DESCRIBE students;
 
 ```
+
+
+## 3. 📝 INSERT ROWS
+
+👉 Explanation:
+INSERT adds new data into a table.
+```sql
+INSERT INTO students (first_name, last_name, age, dob)
+VALUES ('Vikas', 'Yadav', 20, '2005-04-02');
+
+```
