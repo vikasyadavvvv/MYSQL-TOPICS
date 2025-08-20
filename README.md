@@ -130,3 +130,19 @@ SELECT CURRENT_TIME();
 SELECT NOW(); -- both date and time
 
 ```
+
+
+## 8.🔑 UNIQUE
+
+👉 Explanation:
+Ensures all values in a column are different.
+
+👉 Commands:
+```sql
+CREATE TABLE teachers (
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE,
+    name VARCHAR(50)
+);
+
+```
