@@ -228,3 +228,25 @@ CREATE TABLE orders (
 );
 
 ```
+
+
+## 14. 🔗 FOREIGN KEYS
+
+👉 Explanation:
+
+A foreign key links two tables.
+
+It ensures that the value in one table must exist in another (maintains relationships).
+
+👉 Commands:
+```sql
+CREATE TABLE enrollments (
+    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+-- Create enrollments with foreign keys → student_id references students, course_id references courses.
+-- Try inserting an enrollment with a student_id that doesn’t exist → should fail.
+```
