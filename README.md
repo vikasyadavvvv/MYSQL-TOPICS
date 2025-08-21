@@ -204,7 +204,7 @@ A table can have only one primary key.
 Automatically NOT NULL + UNIQUE.
 
 👉 Commands:
-```sal
+```sql
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50),
