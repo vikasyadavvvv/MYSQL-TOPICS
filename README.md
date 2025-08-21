@@ -250,3 +250,36 @@ CREATE TABLE enrollments (
 -- Create enrollments with foreign keys → student_id references students, course_id references courses.
 -- Try inserting an enrollment with a student_id that doesn’t exist → should fail.
 ```
+
+
+## 15. 🤝 JOINS
+
+👉 Explanation:
+
+Combine data from multiple tables.
+
+👉 Types:
+
+INNER JOIN → rows with matching values.
+
+LEFT JOIN → all rows from left table, matching from right.
+
+RIGHT JOIN → all rows from right table, matching from left.
+
+FULL JOIN → all rows from both tables (not directly in MySQL, use UNION).
+
+👉 Commands:
+```sql
+-- Inner Join: Students + Enrollments
+SELECT s.first_name, c.course_name
+FROM students s
+INNER JOIN enrollments e ON s.id = e.student_id
+INNER JOIN courses c ON e.course_id = c.course_id;
+
+-- Left Join: All students even if not enrolled
+SELECT s.first_name, c.course_name
+FROM students s
+LEFT JOIN enrollments e ON s.id = e.student_id
+LEFT JOIN courses c ON e.course_id = c.course_id;
+
+```
