@@ -446,3 +446,172 @@ SELECT * FROM student_courses;
 DROP VIEW student_courses;
 
 ```
+
+
+## 24. 📌 INDEXES
+
+👉 Explanation:
+Indexes make searches faster (like an index in a book).
+
+Primary key automatically creates an index.
+
+You can add indexes on other columns.
+
+👉 Commands:
+```sql
+-- Create index
+CREATE INDEX idx_lastname ON students(last_name);
+
+-- Show indexes
+SHOW INDEX FROM students;
+
+-- Drop index
+DROP INDEX idx_lastname ON students;
+
+```
+
+## 25. 🔍 SUBQUERIES
+
+👉 Explanation:
+A query inside another query.
+
+👉 Types:
+
+Single-row (returns one value).
+
+Multi-row (returns multiple values).
+
+👉 Commands:
+```sql
+-- Find students older than average age
+SELECT * FROM students
+WHERE age > (SELECT AVG(age) FROM students);
+
+-- Find students enrolled in a course called "Math"
+SELECT * FROM students
+WHERE id IN (
+    SELECT student_id FROM enrollments
+    WHERE course_id = (SELECT course_id FROM courses WHERE course_name = 'Math')
+);
+
+```
+
+## 26. 📊 GROUP BY
+
+👉 Explanation:
+Groups rows and allows aggregate functions (COUNT, SUM, AVG, etc.).
+
+👉 Commands:
+```sql
+-- Count students by age
+SELECT age, COUNT(*) AS total
+FROM students
+GROUP BY age;
+
+-- Total enrollments per course
+SELECT course_id, COUNT(*) AS total_enrolled
+FROM enrollments
+GROUP BY course_id;
+
+```
+
+## 27. 🔄 ROLLUP
+
+👉 Explanation:
+Used with GROUP BY to get subtotals and grand totals.
+
+👉 Commands:
+```sql
+-- Count students by age + total
+SELECT age, COUNT(*) 
+FROM students
+GROUP BY age WITH ROLLUP;
+
+```
+
+
+## 28. 🗑 ON DELETE
+
+👉 Explanation:
+Defines what happens to child rows when parent rows are deleted (with foreign keys).
+
+👉 Options:
+
+ON DELETE CASCADE → delete child rows too.
+
+ON DELETE SET NULL → set child column to NULL.
+
+ON DELETE RESTRICT → prevent deletion if child exists.
+```sql
+CREATE TABLE enrollments (
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+```
+
+## 29. ⚙️ STORED PROCEDURES
+
+👉 Explanation:
+A stored procedure is like a function you save inside MySQL. You can call it anytime instead of rewriting queries.
+
+👉 Commands:
+```sql
+-- Create procedure
+DELIMITER //
+CREATE PROCEDURE GetAllStudents()
+BEGIN
+    SELECT * FROM students;
+END //
+DELIMITER ;
+
+-- Call procedure
+CALL GetAllStudents();
+
+-- Procedure with parameter
+DELIMITER //
+CREATE PROCEDURE GetStudentsByAge(IN min_age INT)
+BEGIN
+    SELECT * FROM students WHERE age >= min_age;
+END //
+DELIMITER ;
+
+-- Call with argument
+CALL GetStudentsByAge(20);
+
+```
+
+## 30. ⏱ TRIGGERS
+
+👉 Explanation:
+A trigger automatically runs when something happens in a table (INSERT, UPDATE, DELETE).
+Used for logging, auditing, enforcing rules, etc.
+
+👉 Commands:
+```sql
+-- Create trigger: log every new student
+CREATE TABLE student_log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    action_time DATETIME
+);
+
+DELIMITER //
+CREATE TRIGGER after_student_insert
+AFTER INSERT ON students
+FOR EACH ROW
+BEGIN
+    INSERT INTO student_log(student_id, action_time)
+    VALUES (NEW.id, NOW());
+END //
+DELIMITER ;
+
+-- Test: Insert a student
+INSERT INTO students (first_name, last_name, age, dob)
+VALUES ('Rohit', 'Sharma', 21, '2004-03-12');
+
+-- Check logs
+SELECT * FROM student_log;
+
+```
