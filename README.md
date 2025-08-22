@@ -283,3 +283,22 @@ LEFT JOIN enrollments e ON s.id = e.student_id
 LEFT JOIN courses c ON e.course_id = c.course_id;
 
 ```
+
+
+## 16. 🧮 FUNCTIONS
+
+👉 Explanation:
+MySQL has built-in functions for calculations, strings, and dates.
+
+👉 Examples:
+```sql
+-- Math
+SELECT AVG(age), MAX(age), MIN(age) FROM students;
+
+-- String
+SELECT UPPER(first_name), LENGTH(last_name) FROM students;
+
+-- Date
+SELECT YEAR(dob), MONTH(dob), DAY(dob) FROM students;
+
+```
