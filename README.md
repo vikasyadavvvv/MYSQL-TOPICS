@@ -302,3 +302,45 @@ SELECT UPPER(first_name), LENGTH(last_name) FROM students;
 SELECT YEAR(dob), MONTH(dob), DAY(dob) FROM students;
 
 ```
+
+
+## 17. ⚖️ AND, OR, NOT
+
+👉 Explanation:
+
+Combine conditions in WHERE.
+
+👉 Commands:
+```sql
+-- AND
+SELECT * FROM students WHERE age > 18 AND last_name = 'Yadav';
+
+-- OR
+SELECT * FROM students WHERE age = 20 OR age = 21;
+
+-- NOT
+SELECT * FROM students WHERE NOT last_name = 'Yadav';
+
+```
+
+
+## 18. 🃏 WILD CARDS
+
+👉 Explanation:
+Use LIKE with % (any number of chars) and _ (single char).
+
+👉 Commands:
+```sql
+-- Starts with V
+SELECT * FROM students WHERE first_name LIKE 'V%';
+
+-- Ends with s
+SELECT * FROM students WHERE first_name LIKE '%s';
+
+-- Contains "ika"
+SELECT * FROM students WHERE first_name LIKE '%ika%';
+
+-- 4-letter names
+SELECT * FROM students WHERE first_name LIKE '____';
+
+```
