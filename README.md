@@ -344,3 +344,105 @@ SELECT * FROM students WHERE first_name LIKE '%ika%';
 SELECT * FROM students WHERE first_name LIKE '____';
 
 ```
+
+
+## 19. 📑 ORDER BY
+
+👉 Explanation:
+Used to sort the results in ascending (ASC) or descending (DESC) order.
+
+👉 Commands:
+```sql
+-- Ascending (default)
+SELECT * FROM students ORDER BY age;
+
+-- Descending
+SELECT * FROM students ORDER BY age DESC;
+
+-- Multiple columns
+SELECT * FROM students ORDER BY last_name, first_name;
+
+```
+
+
+## 20. 🎯 LIMIT
+
+👉 Explanation:
+Restricts the number of rows returned. Often used for pagination.
+
+👉 Commands:
+```sql
+-- First 5 students
+SELECT * FROM students LIMIT 5;
+
+-- Skip first 3, get next 2
+SELECT * FROM students LIMIT 3,2;
+
+```
+
+
+## 21. 🔗 UNIONS
+
+👉 Explanation:
+Combine results of two queries.
+
+UNION removes duplicates.
+
+UNION ALL keeps duplicates.
+
+👉 Commands:
+```sql
+SELECT first_name FROM students
+UNION
+SELECT name FROM customers;
+
+-- With duplicates
+SELECT first_name FROM students
+UNION ALL
+SELECT name FROM customers;
+
+```
+
+
+## 22. 🔁 SELF JOINS
+
+👉 Explanation:
+A table joins with itself (useful for hierarchical data like employees and managers).
+
+👉 Commands:
+```sql
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    manager_id INT
+);
+
+-- Example self join
+SELECT e.emp_name AS Employee, m.emp_name AS Manager
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.emp_id;
+
+```
+
+
+## 23. 👓 VIEWS
+
+👉 Explanation:
+A view is like a saved query — a virtual table you can query like a normal table.
+
+👉 Commands:
+```sql
+-- Create view
+CREATE VIEW student_courses AS
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+JOIN enrollments e ON s.id = e.student_id
+JOIN courses c ON e.course_id = c.course_id;
+
+-- Query the view
+SELECT * FROM student_courses;
+
+-- Drop view
+DROP VIEW student_courses;
+
+```
